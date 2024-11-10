@@ -243,6 +243,10 @@ footer a {
   display: grid;
   padding: var(--sp-4) var(--sp-8);
   place-items: center;
+  color: var(--clr-neutral-100);
+  transition: color 150ms ease-in-out;
+}
+.dashboard .card__info .options:hover, .dashboard .card__info .options:focus {
   color: var(--clr-neutral-50);
 }
 .dashboard .card__info .time {
