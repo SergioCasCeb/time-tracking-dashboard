@@ -1,80 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Time tracking dashboard</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Fontawesome icons -->
+  <script src="https://kit.fontawesome.com/d66d421276.js" crossorigin="anonymous"></script>
+
+  <!-- CSS styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JS scripts -->
+  <script src="/js/main.js" defer></script>
+
 </head>
+
 <body>
 
-  Report for
-  Jeremy Robson
+  <main>
+    <div class="container">
+      <section class="dashboard">
+        <div class="card card--user">
+          <div class="user">
+            <div class="user__img">
+              <img src="/images/avatar-sergio.png" alt="user image">
+            </div>
+            <div class="user__info">
+              <span>Report for</span>
+              <h1 class="user-name">Sergio Castro</h1>
+            </div>
+          </div>
+          <div class="filters">
+            <input type="radio" name="time-filter" id="daily-btn" class="filter" value="daily">
+            <input type="radio" name="time-filter" id="weekly-btn" class="filter" value="weekly" checked>
+            <input type="radio" name="time-filter" id="monthly-btn" class="filter" value="monthly">
+          </div>
+        </div>
 
-  Daily
-  Weekly
-  Monthly
+        <!-- Work card -->
+        <div class="card--work card">
+          <div class="card__img">
+            <img src="/images/icon-work.svg" alt="briefcase icon">
+          </div>
+          <div class="card__info">
+            <div class="card-header">
+              <h2 class="title">Work</h2>
+              <button class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-time">
+              <h3 class="time"><span class="time-container" id="work-time" data-category="work">0</span>hrs</h3>
+              <p class="past-time" id="work-past-time">Last Week - 0hrs</p>
+            </div>
+          </div>
+        </div>
 
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
+        <!-- Play card -->
+        <div class="card--play card">
+          <div class="card__img">
+            <img src="/images/icon-play.svg" alt="video game controller icon">
+          </div>
+          <div class="card__info">
+            <div class="card-header">
+              <h2 class="title">Play</h2>
+              <button class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-time">
+              <h3 class="time"><span class="time-container" id="play-time" data-category="play">0</span>hrs</h3>
+              <p class="past-time" id="play-past-time">Last Week - 0hrs</p>
+            </div>
+          </div>
+        </div>
 
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
+        <!-- Study card -->
+        <div class="card--study card">
+          <div class="card__img">
+            <img src="/images/icon-study.svg" alt="open book icon">
+          </div>
+          <div class="card__info">
+            <div class="card-header">
+              <h2 class="title">Study</h2>
+              <button class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-time">
+              <h3 class="time"><span class="time-container" id="study-time" data-category="study">0</span>hrs</h3>
+              <p class="past-time" id="study-past-time">Last Week - 0hrs</p>
+            </div>
+          </div>
+        </div>
 
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
+        <!-- Exercise card -->
+        <div class="card--exercise card">
+          <div class="card__img">
+            <img src="/images/icon-exercise.svg" alt="running person icon">
+          </div>
+          <div class="card__info">
+            <div class="card-header">
+              <h2 class="title">Exercise</h2>
+              <button class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-time">
+              <h3 class="time"><span class="time-container" id="exercise-time" data-category="exercise">0</span>hrs</h3>
+              <p class="past-time" id="exercise-past-time">Last Week - 0hrs</p>
+            </div>
+          </div>
+        </div>
 
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
+        <!-- Social card -->
+        <div class="card--social card">
+          <div class="card__img">
+            <img src="/images/icon-social.svg" alt="speech bubbles icon">
+          </div>
+          <div class="card__info">
+            <div class="card-header">
+              <h2 class="title">Social</h2>
+              <button class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-time">
+              <h3 class="time"><span class="time-container" id="social-time" data-category="social">0</span>hrs</h3>
+              <p class="past-time" id="social-past-time">Last Week - 0hrs</p>
+            </div>
+          </div>
+        </div>
 
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
+        <!-- Self-care card -->
+        <div class="card--self-care card">
+          <div class="card__img">
+            <img src="/images/icon-self-care.svg" alt="heart icon">
+          </div>
+          <div class="card__info">
+            <div class="card-header">
+              <h2 class="title">Self Care</h2>
+              <button class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-time">
+              <h3 class="time"><span class="time-container" id="self-care-time" data-category="self care">0</span>hrs</h3>
+              <p class="past-time" id="self-care-past-time">Last Week - 0hrs</p>
+            </div>
+          </div>
+        </div>
 
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
+      </section>
+    </div>
+  </main>
 
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+
+  <footer>
+    <div class="container">
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/SergioCasCeb/">Sergio Eduardo Castro Ceballos</a>.
+      </p>
+    </div>
+  </footer>
 </body>
+
 </html>

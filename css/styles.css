@@ -1,0 +1,412 @@
+/**
+ * CSS reset.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+html {
+  hanging-punctuation: first last;
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+}
+/* 
+  * Global styles
+  */
+:root {
+  --clr-primary-light-blue-500: hsl(195, 74%, 62%);
+  --clr-primary-blue-500: hsl(246, 80%, 60%);
+  --clr-primary-red-500: hsl(15, 100%, 70%);
+  --clr-primary-red-700: hsl(348, 100%, 68%);
+  --clr-primary-green-500: hsl(145, 58%, 55%);
+  --clr-primary-violet-500: hsl(264, 64%, 52%);
+  --clr-primary-orange-500: hsl(43, 84%, 65%);
+  --clr-neutral-50: hsl(0, 0%, 94%);
+  --clr-neutral-100: hsl(236, 100%, 87%);
+  --clr-neutral-300: hsl(235, 45%, 61%);
+  --clr-neutral-400: hsl(235, 35%, 31%);
+  --clr-neutral-500: hsl(235, 46%, 20%);
+  --clr-neutral-800: hsl(226, 43%, 10%);
+  --ff-primary: "Rubik", serif;
+  --fs-xxlg: clamp(2rem, 1.4699248120300752rem + 2.2556390977443606vw, 3.5rem);
+  --fs-xlg: clamp(1.75rem, 1.5733082706766917rem + 0.7518796992481203vw, 2.25rem);
+  --fs-lg: 1.125rem;
+  --fs-m: 1rem;
+  --fs-sm: 0.938rem;
+  --fs-xsm: 0.75rem;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --lh-body: 1.5;
+  --lh-title: 1.2;
+  --sp-56: 3.5rem;
+  --sp-48: 3rem;
+  --sp-40: 2.5rem;
+  --sp-36: 2.25rem;
+  --sp-32: 2rem;
+  --sp-28: 1.75rem;
+  --sp-24: 1.5rem;
+  --sp-20: 1.25rem;
+  --sp-16: 1rem;
+  --sp-12: .75rem;
+  --sp-8: .5rem;
+  --sp-4: .25rem;
+}
+
+body {
+  background-color: var(--clr-neutral-800);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: var(--lh-body);
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--lh-title);
+  color: var(--clr-neutral-50);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+*:focus {
+  outline: 2px solid var(--clr-primary-blue-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  font-size: var(--fs-xsm);
+  padding: var(--sp-8) 0;
+  color: var(--clr-neutral-50);
+}
+footer a {
+  font-weight: var(--fw-medium);
+  color: var(--clr-neutral-300);
+}
+
+/*
+  * Utilities
+  */
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 var(--sp-24);
+  display: grid;
+  place-items: center;
+}
+
+/* 
+* Components
+*/
+.dashboard {
+  width: 100%;
+  max-width: 30rem;
+  padding: var(--sp-32) 0;
+  --_card-border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, minmax(0, fit-content));
+  grid-template-areas: "user" "work" "play" "study" "exercise" "social" "self-care";
+  gap: var(--sp-24);
+}
+.dashboard .card {
+  border-radius: var(--_card-border-radius);
+  overflow: hidden;
+  background-color: var(--_card-color);
+}
+.dashboard .card__img {
+  position: relative;
+  height: var(--sp-40);
+  z-index: 0;
+}
+.dashboard .card__img img {
+  width: 5rem;
+  position: absolute;
+  right: var(--sp-24);
+  top: calc(-1 * var(--_distance-top));
+  z-index: -1;
+}
+.dashboard .card__info {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  border-radius: var(--_card-border-radius) var(--_card-border-radius) 0 0;
+  padding: var(--sp-24);
+  background-color: var(--clr-neutral-500);
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out;
+}
+.dashboard .card__info:hover {
+  background-color: var(--clr-neutral-400);
+}
+.dashboard .card__info .card-header,
+.dashboard .card__info .card-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dashboard .card__info .card-header {
+  margin-bottom: var(--sp-16);
+}
+.dashboard .card__info .card-time {
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+}
+.dashboard .card__info .title {
+  font-weight: var(--fw-medium);
+}
+.dashboard .card__info .options {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  display: grid;
+  padding: var(--sp-4) var(--sp-8);
+  place-items: center;
+}
+.dashboard .card__info .time {
+  font-size: var(--fs-xxlg);
+  font-weight: var(--fw-light);
+}
+.dashboard .card--user {
+  background-color: var(--clr-neutral-500);
+  grid-area: user;
+}
+.dashboard .card--user .user,
+.dashboard .card--user .filters {
+  padding: var(--sp-24);
+}
+.dashboard .card--user .user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+  background-color: var(--clr-primary-blue-500);
+  border-radius: 0 0 var(--_card-border-radius) var(--_card-border-radius);
+}
+.dashboard .card--user .user__img {
+  width: 4rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid var(--clr-neutral-50);
+  overflow: hidden;
+}
+.dashboard .card--user .user__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dashboard .card--user .user__info span {
+  font-size: var(--fs-m);
+}
+.dashboard .card--user .user__info .user-name {
+  font-size: var(--fs-xlg);
+  font-weight: var(--fw-light);
+}
+.dashboard .card--user .filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+}
+.dashboard .card--user .filters .filter {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 4.25rem;
+  height: 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+.dashboard .card--user .filters .filter::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--clr-neutral-100);
+  pointer-events: none;
+  transition: color 150ms ease-in-out;
+}
+.dashboard .card--user .filters .filter:nth-child(1)::before {
+  content: "Daily";
+}
+.dashboard .card--user .filters .filter:nth-child(2)::before {
+  content: "Weekly";
+}
+.dashboard .card--user .filters .filter:nth-child(3)::before {
+  content: "Monthly";
+}
+.dashboard .card--user .filters .filter:hover::before, .dashboard .card--user .filters .filter:focus::before, .dashboard .card--user .filters .filter:checked::before {
+  color: var(--clr-neutral-50);
+}
+.dashboard .card--work {
+  --_card-color: var(--clr-primary-red-500);
+  --_distance-top: var(--sp-12);
+  grid-area: work;
+}
+.dashboard .card--play {
+  --_card-color: var(--clr-primary-light-blue-500);
+  --_distance-top: var(--sp-4);
+  grid-area: play;
+}
+.dashboard .card--study {
+  --_card-color: var(--clr-primary-red-700);
+  --_distance-top: var(--sp-4);
+  grid-area: study;
+}
+.dashboard .card--exercise {
+  --_card-color: var(--clr-primary-green-500);
+  --_distance-top: 0;
+  grid-area: exercise;
+}
+.dashboard .card--social {
+  --_card-color: var(--clr-primary-violet-500);
+  --_distance-top: var(--sp-16);
+  grid-area: social;
+}
+.dashboard .card--self-care {
+  --_card-color: var(--clr-primary-orange-500);
+  --_distance-top: var(--sp-16);
+  grid-area: self-care;
+}
+
+@media screen and (min-width: 48rem) {
+  .dashboard {
+    max-width: 35rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, minimax(0, fit-content));
+    grid-template-areas: "user user" "work play" "study exercise" "social self-care";
+  }
+}
+@media screen and (min-width: 67.5rem) {
+  .dashboard {
+    max-width: 65rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minimax(0, fit-content));
+    grid-template-areas: "user work play study" "user exercise social self-care";
+  }
+  .dashboard .card--user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .dashboard .card--user .user {
+    flex: 1;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--sp-32);
+  }
+  .dashboard .card--user .user__img {
+    width: 5rem;
+  }
+  .dashboard .card--user .user__info {
+    flex: 1;
+  }
+  .dashboard .card--user .user__info span {
+    font-size: var(--fs-sm);
+  }
+  .dashboard .card--user .filters {
+    width: 100%;
+    padding-bottom: var(--sp-32);
+    gap: var(--sp-20);
+  }
+  .dashboard .card--user .filters .filter {
+    min-width: 100%;
+  }
+  .dashboard .card__img {
+    position: relative;
+    height: var(--sp-48);
+    z-index: 0;
+  }
+  .dashboard .card__info .card-header {
+    margin-bottom: var(--sp-20);
+  }
+  .dashboard .card__info .past-time {
+    font-size: var(--fs-sm);
+  }
+}/*# sourceMappingURL=styles.css.map */
