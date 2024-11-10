@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor Solution](https://your-solution-url.com)
-- Live Site URL: [Netlify](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/responsive-time-tracking-dashboard-with-scss-and-fetch-api-PaM6GCwMrF)
+- Live Site URL: [Netlify](https://fm-time-tracking-dashboard-sergio.netlify.app/)
 
 ## My process
 
